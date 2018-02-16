@@ -12,6 +12,10 @@ class User
     @budget = options["budget"]
   end
 
+  def pretty_name()
+    return "#{@first_name} #{@last_name}"
+  end
+
   def save()
     sql = "INSERT INTO users
     (first_name, last_name, monthly_income, budget)

@@ -1,0 +1,11 @@
+<h2>Users</h2>
+
+<% @users.each do |user| %>
+  <p>
+    User Name : <%= user.pretty_name() %>
+    <br />
+    Monthy Income : <%= user.monthly_income %>
+    <br />
+    Budget : <%= user.budget %>
+  </p>
+<% end %>
