@@ -21,3 +21,12 @@ end
 get "/users/add" do
   erb(:"users/new")
 end
+
+# edit
+
+
+#show
+get "/users/:id" do
+  @user = User.find(params[:id])
+  erb(:"users/show")
+end

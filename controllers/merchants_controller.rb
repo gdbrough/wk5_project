@@ -21,3 +21,12 @@ end
 get "/merchants/add" do
   erb(:"merchants/new")
 end
+
+# edit
+
+
+#show
+get "/merchants/:id" do
+  @merchant = Merchant.find(params[:id])
+  erb(:"merchants/show")
+end

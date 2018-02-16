@@ -25,3 +25,12 @@ get "/transactions/add" do
   @users = User.all()
   erb(:"transactions/new")
 end
+
+# edit
+
+
+#show
+get "/transactions/:id" do
+  @transaction = Transaction.find(params[:id])
+  erb(:"transactions/show")
+end
