@@ -2,9 +2,9 @@
 
 <% @transactions.each do |transaction| %>
   <p>
-    User ID : <%= transaction.user_id %>
+    User ID : <%= transaction.find_user().pretty_name() %>
     <br />
-    Merchant ID : <%= transaction.merchant_id %>
+    Merchant ID : <%= transaction.find_merchant().merchant_name %>
     <br />
     Amount : <%= transaction.amount %>
     <br />
@@ -13,3 +13,4 @@
     Transaction Date : <%= transaction.trans_date %>
   </p>
 <% end %>
+Please <a href="/transactions/add">Add a New Transaction</a>

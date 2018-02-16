@@ -23,6 +23,22 @@ class Transaction
     @id = transaction.first()["id"].to_i
   end
 
+  def find_user()
+    sql = "SELECT * FROM users WHERE id = $1"
+    values = [@user_id]
+    user = SqlRunner.run(sql, values)
+    result = User.new(user.first)
+    return result
+  end
+
+  def find_merchant()
+    sql = "SELECT * FROM merchants WHERE id = $1"
+    values = [@merchant_id]
+    merchant = SqlRunner.run(sql, values)
+    result = Merchant.new(merchant.first)
+    return result
+  end
+
   def self.all()
     sql = "SELECT * FROM transactions"
     transactions = SqlRunner.run(sql)

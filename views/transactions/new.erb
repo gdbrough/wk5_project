@@ -1,0 +1,23 @@
+<h2>Add New Transaction</h2>
+
+<form action="/transactions" method="post">
+  <label for="user_id">Select a User</label>
+  <select name="user_id">
+    <% @users.each do | user | %>
+      <option value="<%= user.id %>"><%= user.pretty_name() %></option>
+    <% end %>
+  </select>
+  <label for="merchant">Select a Merchant</label>
+  <select name="merchant_id">
+    <% @merchants.each do | merchant | %>
+      <option value="<%= merchant.id %>"><%= merchant.merchant_name %></option>
+    <% end %>
+  </select>
+  <label for="amount">Amount :</label>
+  <input type="number" name="amount" id="amount" />
+  <label for="merchant_id">Tag :</label>
+  <input type="text" name="tag" id="tag" />
+  <label for="trans_date">Date :</label>
+  <input type="date" name="trans_date" id="trans_date" />
+  <input type="submit" value="Add Transaction">
+</form>
