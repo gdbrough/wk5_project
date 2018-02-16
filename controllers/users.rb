@@ -9,3 +9,15 @@ get "/users" do
   @users = User.all()
   erb ( :"users/index" )
 end
+
+# create
+post "/users" do
+  @user = User.new(params)
+  @user.save()
+  redirect "/users"
+end
+
+# add
+get "/users/add" do
+  erb(:"users/new")
+end

@@ -1,11 +1,17 @@
 <h2>Users</h2>
 
-<% @users.each do |user| %>
-  <p>
-    User Name : <%= user.pretty_name() %>
-    <br />
-    Monthy Income : <%= user.monthly_income %>
-    <br />
-    Budget : <%= user.budget %>
-  </p>
+<% if User.all().count() < 1 %>
+  There current no users registered to use this app.
+  <br/ >
+  Please <a href="/users/add">add a user</a>
+<% else %>
+  <% @users.each do |user| %>
+    <p>
+      User Name : <%= user.pretty_name() %>
+      <br />
+      Monthy Income : <%= user.monthly_income %>
+      <br />
+      Budget : <%= user.budget %>
+    </p>
+  <% end %>
 <% end %>
