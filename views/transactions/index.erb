@@ -1,0 +1,15 @@
+<h2>Transactions</h2>
+
+<% @transactions.each do |transaction| %>
+  <p>
+    User ID : <%= transaction.user_id %>
+    <br />
+    Merchant ID : <%= transaction.merchant_id %>
+    <br />
+    Amount : <%= transaction.amount %>
+    <br />
+    Tag : <%= transaction.tag %>
+    <br />
+    Transaction Date : <%= transaction.trans_date %>
+  </p>
+<% end %>
