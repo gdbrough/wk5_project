@@ -7,7 +7,8 @@ user1 = User.new({
   "first_name" => "Roy",
   "last_name" => "Oftherovers",
   "monthly_income" => 2000,
-  "budget" => 500
+  "budget" => 500,
+  "pay_date" => 1
 })
 
 user1.save()
@@ -23,7 +24,8 @@ transaction1 = Transaction.new({
   "merchant_id" => merchant1.id,
   "amount" => 27,
   "tag" => "groceries",
-  "trans_date" => "20180216"
+  "trans_date" => "20180216",
+  "recurring_transaction" => false
 })
 
 transaction1.save()

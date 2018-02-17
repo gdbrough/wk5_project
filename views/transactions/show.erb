@@ -5,5 +5,12 @@
 <p>Transaction Amount : <%= @transaction.amount %></p>
 <p>Tag : <%= @transaction.tag %></p>
 <p>Transaction Date : <%= @transaction.trans_date %></p>
-<a href="/transaction/edit/<%= @transaction.id %>">Edit this Transaction</a>
+<p>Recurring Transaction :
+<% if @transaction.recurring_transaction == "t" %>
+  Yes
+<% else %>
+  No
+<% end %>
+</p>
+<a href="/transactions/<%= @transaction.id %>/edit">Edit this Transaction</a>
 </br />

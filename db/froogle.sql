@@ -7,7 +7,8 @@ CREATE TABLE users (
   first_name VARCHAR(255),
   last_name VARCHAR(255),
   monthly_income INT,
-  budget INT
+  budget INT,
+  pay_date INT
 );
 
 CREATE TABLE merchants (
@@ -21,5 +22,6 @@ CREATE TABLE transactions (
   merchant_id INT REFERENCES merchants(id) ON DELETE CASCADE,
   amount INT,
   tag VARCHAR(255),
-  trans_date DATE
+  trans_date DATE,
+  recurring_transaction BOOLEAN
 );

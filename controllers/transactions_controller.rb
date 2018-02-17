@@ -27,7 +27,19 @@ get "/transactions/add" do
 end
 
 # edit
+get "/transactions/:id/edit" do
+  @transaction = Transaction.find(params[:id])
+  @merchants = Merchant.all()
+  @users = User.all()
+  erb(:"transactions/edit")
+end
 
+# edit
+post "/transactions/:id" do
+  @transaction = Transaction.new(params)
+  @transaction.update()
+  redirect "/transactions"
+end
 
 #show
 get "/transactions/:id" do

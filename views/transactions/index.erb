@@ -1,19 +1,32 @@
 <h2>Transactions</h2>
 
-<% @transactions.each do |transaction| %>
-  <p>
-    User : <%= transaction.find_user().pretty_name() %>
-    <br />
-    Merchant : <%= transaction.find_merchant().merchant_name %>
-    <br />
-    Amount : <%= transaction.amount %>
-    <br />
-    Tag : <%= transaction.tag %>
-    <br />
-    Transaction Date : <%= transaction.trans_date %>
-    <br />
-    <a href="transactions/<%= transaction.id%>">View Transaction</a>
-    <br />
-  </p>
+<% if Transaction.all().count() < 1 %>
+  There current no transactions added to this app.
+  <br/ >
+  Please <a href="/transactions/add">add a transaction</a>.
+<% else %>
+  <% @transactions.each do |transaction| %>
+    <p>
+      User : <%= transaction.find_user().pretty_name() %>
+      <br />
+      Merchant : <%= transaction.find_merchant().merchant_name %>
+      <br />
+      Amount : <%= transaction.amount %>
+      <br />
+      Tag : <%= transaction.tag %>
+      <br />
+      Transaction Date : <%= transaction.trans_date %>
+      <br />
+      Recurring Transaction :
+      <% if transaction.recurring_transaction == "t" %>
+        Yes
+      <% else %>
+        No
+      <% end %>
+      <br />
+      <a href="transactions/<%= transaction.id%>">View Transaction</a>
+      <br />
+    </p>
+  <% end %>
+  Please <a href="/transactions/add">Add a New Transaction</a>
 <% end %>
-Please <a href="/transactions/add">Add a New Transaction</a>

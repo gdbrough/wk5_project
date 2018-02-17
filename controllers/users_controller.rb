@@ -23,7 +23,17 @@ get "/users/add" do
 end
 
 # edit
+get "/users/:id/edit" do
+  @user = User.find(params[:id])
+  erb(:"users/edit")
+end
 
+# edit
+post "/users/:id" do
+  @user = User.new(params)
+  @user.update()
+  redirect "/users"
+end
 
 #show
 get "/users/:id" do

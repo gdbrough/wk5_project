@@ -23,7 +23,17 @@ get "/merchants/add" do
 end
 
 # edit
+get "/merchants/:id/edit" do
+  @merchant = Merchant.find(params[:id])
+  erb(:"merchants/edit")
+end
 
+# edit
+post "/merchants/:id" do
+  @merchant = Merchant.new(params)
+  @merchant.update()
+  redirect "/merchants"
+end
 
 #show
 get "/merchants/:id" do

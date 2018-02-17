@@ -1,10 +1,16 @@
 <h2>Merchants</h2>
 
-<% @merchants.each do |merchant| %>
-  <p>
-    Merchant Name : <%= merchant.merchant_name %>
-    <br />
-    <a href="/merchants/<%= merchant.id %>">View Merchant</a>
-  </p>
+<% if Merchant.all().count() < 1 %>
+  There current no merchants to be referenced in transactions.
+  <br/ >
+  Please <a href="/merchants/add">add a merchant</a>.
+<% else %>
+  <% @merchants.each do |merchant| %>
+    <p>
+      Merchant Name : <%= merchant.merchant_name %>
+      <br />
+      <a href="/merchants/<%= merchant.id %>">View Merchant</a>
+    </p>
+  <% end %>
+  Please <a href="/merchants/add">Add a New Merchant</a>
 <% end %>
-Please <a href="/merchants/add">Add a New Merchant</a>

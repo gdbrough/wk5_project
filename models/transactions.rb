@@ -2,7 +2,7 @@ require_relative("../db/sql_runner")
 
 class Transaction
 
-  attr_reader :id, :user_id, :merchant_id, :amount, :tag, :trans_date
+  attr_reader :id, :user_id, :merchant_id, :amount, :tag, :trans_date, :recurring_transaction
 
   def initialize(options)
     @id = options["id"]
@@ -11,16 +11,25 @@ class Transaction
     @amount = options["amount"]
     @tag = options["tag"]
     @trans_date = options["trans_date"]
+    @recurring_transaction = options["recurring_transaction"]
   end
 
   def save()
     sql = "INSERT INTO transactions
-    (user_id, merchant_id, amount, tag, trans_date)
-    VALUES ($1, $2, $3, $4, $5)
+    (user_id, merchant_id, amount, tag, trans_date, recurring_transaction)
+    VALUES ($1, $2, $3, $4, $5, $6)
     RETURNING id"
-    values = [@user_id, @merchant_id, @amount, @tag, @trans_date]
+    values = [@user_id, @merchant_id, @amount, @tag, @trans_date, @recurring_transaction]
     transaction = SqlRunner.run(sql, values)
     @id = transaction.first()["id"].to_i
+  end
+
+  def update()
+    sql = "UPDATE transactions SET user_id = $1, merchant_id = $2,
+    amount = $3, tag = $4, trans_date = $5, recurring_transaction = $6
+    where id = $7"
+    values = [@user_id, @merchant_id, @amount, @tag, @trans_date, @recurring_transaction, @id]
+    transaction = SqlRunner.run(sql, values)
   end
 
   def find_user()

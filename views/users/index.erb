@@ -3,7 +3,7 @@
 <% if User.all().count() < 1 %>
   There current no users registered to use this app.
   <br/ >
-  Please <a href="/users/add">add a user</a>
+  Please <a href="/users/add">add a user</a>.
 <% else %>
   <% @users.each do |user| %>
     <p>
@@ -12,6 +12,8 @@
       Monthy Income : <%= user.monthly_income %>
       <br />
       Budget : <%= user.budget %>
+      <br />
+      Pay Date : <%= user.pay_date %>
       <br />
       <a href="users/<%= user.id %>">View user</a>
     </p>

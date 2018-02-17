@@ -1,0 +1,33 @@
+<p>Edit Transaction</p>
+
+<form method="post" action="/transactions/<%= @transaction.id %>">
+
+  <label for="user">Select a User</label>
+  <select name="user_id" id="user_id">
+    <% for user in @users %>
+      <option value = "<%= user.id %>" <%= "selected" if user.id.to_i == @transaction.user_id.to_i %>>
+        <%=  user.pretty_name %>
+      </option>
+    <% end %>
+  </select>
+  <label for="user">Select a Merchant</label>
+  <select name="merchant_id" id="merchant_id">
+    <% for merchant in @merchants %>
+      <option value = "<%= merchant.id %>" <%= "selected" if merchant.id.to_i == @transaction.merchant_id.to_i %>>
+        <%=  merchant.merchant_name %>
+      </option>
+    <% end %>
+  </select>
+
+
+  <label for="amount">Transaction Amount :</label>
+  <input type="number" name="amount" id="amount" value="<%= @transaction.amount %>" />
+  <label for="tag">Tag :</label>
+  <input type="text" name="tag" id="tag" value="<%= @transaction.tag %>" />
+  <label for="pay_date">Transaction Date :</label>
+  <input type="date" name="trans_date" id="trans_date" value="<%= @transaction.trans_date %>" />
+  <label for="recurring_transaction">Recurring Transaction :</label>
+  <input type="checkbox" name="recurring_transaction" id="recurring_transaction" value="<%= @transaction.recurring_transaction %>">
+  <input type="submit" value="Edit User" />
+
+</form>
