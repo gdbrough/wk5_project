@@ -15,6 +15,9 @@ class Transaction
   end
 
   def save()
+    if @recurring_transaction != "true"
+      @recurring_transaction = "false"
+    end
     sql = "INSERT INTO transactions
     (user_id, merchant_id, amount, tag, trans_date, recurring_transaction)
     VALUES ($1, $2, $3, $4, $5, $6)

@@ -97,7 +97,7 @@ transaction6 = Transaction.new({
   "amount" => 550,
   "tag" => "mortgage",
   "trans_date" => "20180216",
-  "recurring_transaction" => false
+  "recurring_transaction" => true
 })
 
 transaction1.save()
