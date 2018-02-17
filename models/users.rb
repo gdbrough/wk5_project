@@ -57,4 +57,9 @@ class User
     return result
   end
 
+  def self.delete_all()
+    sql = "DELETE FROM users;"
+    SqlRunner.run(sql)
+  end
+
 end
