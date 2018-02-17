@@ -15,8 +15,8 @@ class Transaction
   end
 
   def save()
-    if @recurring_transaction != "true"
-      @recurring_transaction = "false"
+    if @recurring_transaction != "t" && @recurring_transaction != true
+      @recurring_transaction = "f"
     end
     sql = "INSERT INTO transactions
     (user_id, merchant_id, amount, tag, trans_date, recurring_transaction)
@@ -28,6 +28,9 @@ class Transaction
   end
 
   def update()
+    if @recurring_transaction != "t"
+      @recurring_transaction = "f"
+    end
     sql = "UPDATE transactions SET user_id = $1, merchant_id = $2,
     amount = $3, tag = $4, trans_date = $5, recurring_transaction = $6
     where id = $7"

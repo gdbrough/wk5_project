@@ -23,5 +23,5 @@ CREATE TABLE transactions (
   amount INT,
   tag VARCHAR(255),
   trans_date DATE,
-  recurring_transaction BOOLEAN NOT NULL DEFAULT false
+  recurring_transaction BOOLEAN
 );

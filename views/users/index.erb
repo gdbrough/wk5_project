@@ -5,6 +5,7 @@
   <br/ >
   Please <a href="/users/add">add a user</a>.
 <% else %>
+  <h3>Showing <%= User.all().count() %> users</h3>
   <% @users.each do |user| %>
     <p>
       User Name : <%= user.pretty_name() %>

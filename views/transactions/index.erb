@@ -5,6 +5,7 @@
   <br/ >
   Please <a href="/transactions/add">add a transaction</a>.
 <% else %>
+  <h3>Showing <%= Transaction.all().count() %> transactions</h3>
   <% @transactions.each do |transaction| %>
     <p>
       User : <%= transaction.find_user().pretty_name() %>

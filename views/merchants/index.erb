@@ -5,6 +5,7 @@
   <br/ >
   Please <a href="/merchants/add">add a merchant</a>.
 <% else %>
+  <h3>Showing <%= Merchant.all().count() %> merchants</h3>
   <% @merchants.each do |merchant| %>
     <p>
       Merchant Name : <%= merchant.merchant_name %>
