@@ -35,6 +35,13 @@ post "/merchants/:id" do
   redirect "/merchants"
 end
 
+# delete
+post "/merchants/:id/delete" do
+  @merchant = Merchant.new(params)
+  @merchant.delete()
+  redirect "/merchants"
+end
+
 #show
 get "/merchants/:id" do
   @merchant = Merchant.find(params[:id])

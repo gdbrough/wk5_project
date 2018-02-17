@@ -13,4 +13,7 @@
 <% end %>
 </p>
 <a href="/transactions/<%= @transaction.id %>/edit">Edit this Transaction</a>
+<form method="post" action="/transactions/<%= @transaction.id %>/delete">
+  <input type="submit" value="Delete Transaction" />
+</form>
 </br />

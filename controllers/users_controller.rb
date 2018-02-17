@@ -35,6 +35,13 @@ post "/users/:id" do
   redirect "/users"
 end
 
+# delete
+post "/users/:id/delete" do
+  @order = User.new(params)
+  @order.delete()
+  redirect "/users"
+end
+
 #show
 get "/users/:id" do
   @user = User.find(params[:id])
