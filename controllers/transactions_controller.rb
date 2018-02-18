@@ -9,7 +9,7 @@ require_relative("../models/users.rb")
 # index
 get "/transactions" do
   @transactions = Transaction.all()
-  erb ( :"transactions/index" )
+  erb (:"transactions/index")
 end
 
 # create

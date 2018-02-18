@@ -7,7 +7,7 @@ require_relative("../models/users.rb")
 # index
 get "/users" do
   @users = User.all()
-  erb ( :"users/index" )
+  erb (:"users/index")
 end
 
 # create

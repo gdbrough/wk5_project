@@ -28,9 +28,7 @@ class Transaction
   end
 
   def update()
-    if @recurring_transaction != "t"
-      @recurring_transaction = "f"
-    end
+    @recurring_transaction = "f" if @recurring_transaction != "t"
     sql = "UPDATE transactions SET user_id = $1, merchant_id = $2,
     amount = $3, tag = $4, trans_date = $5, recurring_transaction = $6
     where id = $7"

@@ -1,0 +1,22 @@
+<h2>Show Budget for User</h2>
+
+<p>Budget for <%= @users.pretty_name %>.</p>
+<p>Showing <%= @user_transactions.count() %> transactions.</p>
+<% @user_transactions.each do |transaction| %>
+  <p>
+    Merchant : <%= transaction.find_merchant().merchant_name %>
+    <br />
+    Transaction Amount : <%= transaction.amount %>
+    <br />
+    Tag : <%= transaction.tag %>
+    <br />
+    Transaction Date : <%= transaction.trans_date %>
+    <br />
+    Recurring Transaction :
+    <% if transaction.recurring_transaction == "t" %>
+      Yes
+    <% else %>
+      No
+    <% end %>
+  </p>
+<% end %>

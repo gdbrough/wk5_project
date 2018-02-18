@@ -1,0 +1,10 @@
+<h2>Budget</h2>
+
+Select user:
+<% @users.each do |user| %>
+  <p>
+    User Name : <%= user.pretty_name() %>
+    <br />
+    <a href="budget/<%= user.id %>">View User' Budget</a>
+  </p>
+<% end %>
