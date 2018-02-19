@@ -2,8 +2,8 @@
 
 <p>First Name : <%= @user.first_name %></p>
 <p>Last Name : <%= @user.last_name %></p>
-<p>Monthly Income : <%= @user.monthly_income %></p>
-<p>Budget : <%= @user.budget %></p>
+<p>Monthly Income : £<%= @user.monthly_income %></p>
+<p>Budget : £<%= @user.budget %></p>
 <p>Pay Date : <%= @user.pay_date %></p>
 <a href="/users/<%= @user.id %>/edit">Edit this User</a>
 <form method="post" action="/users/<%= @user.id %>/delete">

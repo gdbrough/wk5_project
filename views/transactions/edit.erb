@@ -20,7 +20,7 @@
   </select>
 
 
-  <label for="amount">Transaction Amount :</label>
+  <label for="amount">Transaction Amount (£):</label>
   <input type="number" name="amount" id="amount" value="<%= @transaction.amount %>" />
   <label for="tag">Select a Tag :</label>
   <select name="tag_id" id="tag_id">
@@ -40,6 +40,6 @@
   checked
   <% end %>
   >
-  <input type="submit" value="Edit User" />
+  <input type="submit" value="Edit Transaction" />
 
 </form>

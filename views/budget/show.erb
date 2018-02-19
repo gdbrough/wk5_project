@@ -1,22 +1,30 @@
 <h2>Show Budget for User</h2>
 
-<p>Budget for <%= @users.display_name %>.</p>
-<p>Showing <%= @user_transactions.count() %> transactions.</p>
-<p>Budget : <%= @users.budget %></p>
-<p>Total Recurring Transactions : <%= @total_recurring_transactions %></p>
-<p>Today's Date : <%= @current_date %></p>
-<p>Current Date : <%= @current_date[2] %></p>
-<p>Current Month : <%= @current_date[1] %></p>
-<p>Current Year : <%= @current_date[0] %></p>
-<p>test</p>
-<p>User's Pay Date : <%= @users.pay_date %></p>
+<h3>Budget for <%= @users.display_name %>.</h3>
+<p>Today's Date : <%= Date.new(@current_date[0], @current_date[1], @current_date[2]) %></p>
+<p>Next Pay Date : <%= Date.new(@next_pay_date[0], @next_pay_date[1], @next_pay_date[2]) %></p>
+<p>Monthly Income : £<%= @users.monthly_income %></p>
+<p>Monthly Budget : £<%= @users.budget %></p>
+<p>Total Recurring Transactions : £
+  <% if @total_recurring_transactions == nil %>
+    0
+  <% else %>
+    <%= @total_recurring_transactions %>
+  <% end %>
+</p>
+<p>Total Transactions Since Last Pay Day :  £
+  <% if @total_non_recurring_transactions == nil %>
+    0
+  <% else %>
+    <%= @total_non_recurring_transactions %></p>
+  <% end %>
+<p><% if @remaining_daily_budget[1] < 1 %>
+  WARNING!!!
+  <% end %>
+  Daily Budget for next <%= @remaining_daily_budget[0].to_i %> day(s) : £<%= @remaining_daily_budget[1] %></p>
 
-<p>Next Pay Day : <%= @next_pay_date %></p>
-
-<p>Next Pay Date : <%= @next_pay_date[2] %></p>
-<p>Next Pay Month : <%= @next_pay_date[1] %></p>
-<p>Next Pay Year : <%= @next_pay_date[0] %></p>
-
+<h3>All Transactions for <%= @users.display_name %></h3>
+<h4>Showing <%= @user_transactions.count() %> transactions.</h4>
 <% @user_transactions.each do |transaction| %>
   <p>
     Merchant : <%= transaction.find_merchant().merchant_name %>

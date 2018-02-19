@@ -24,6 +24,7 @@ end
 get "/transactions/add" do
   @merchants = Merchant.all()
   @users = User.all()
+  @tags = Tag.all()
   erb(:"transactions/new")
 end
 

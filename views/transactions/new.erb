@@ -13,10 +13,14 @@
       <option value="<%= merchant.id %>"><%= merchant.merchant_name %></option>
     <% end %>
   </select>
-  <label for="amount">Amount :</label>
+  <label for="amount">Amount : £</label>
   <input type="number" name="amount" id="amount" />
-  <label for="merchant_id">Tag :</label>
-  <input type="text" name="tag" id="tag" />
+  <label for="tag_id">Tag :</label>
+  <select name="tag_id">
+    <% @tags.each do | tag | %>
+      <option value="<%= tag.id %>"><%= tag.tag_name %></option>
+    <% end %>
+  </select>
   <label for="trans_date">Date :</label>
   <input type="date" name="trans_date" id="trans_date" />
   <label for="recurring_transaction">Recurring Transaction :</label>

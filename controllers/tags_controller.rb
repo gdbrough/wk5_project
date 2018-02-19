@@ -14,6 +14,18 @@ get "/tags" do
   erb (:"tags/index")
 end
 
+# create
+post "/tags" do
+  @tag = Tag.new(params)
+  @tag.save()
+  redirect "/tags"
+end
+
+# add
+get "/tags/add" do
+  erb(:"tags/new")
+end
+
 # edit
 get "/tags/:id/edit" do
   @tag = Tag.find(params[:id])
@@ -39,7 +51,12 @@ get "/tags/:id" do
   @tag = Tag.find(params[:id])
   erb(:"tags/show")
 end
-# end
+
+#show transactions by tag
+get "/tags/:id/transactions" do
+  @transactions = Transaction.find_by_tag(params[:id])
+  erb(:"tags/show_transactions")
+end
 
 # binding.pry
 # nil

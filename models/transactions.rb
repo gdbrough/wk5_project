@@ -82,13 +82,13 @@ class Transaction
     return result
   end
 
-  # def self.find_by_tag(id)
-  #   sql = "SELECT * FROM transactions WHERE tag = $1"
-  #   values = [id]
-  #   transactions = SqlRunner.run(sql, values)
-  #   result = transactions.map { |transaction| Transaction.new(transaction) }
-  #   return result
-  # end
+  def self.find_by_tag(id)
+    sql = "SELECT * FROM transactions WHERE tag_id = $1"
+    values = [id]
+    transactions = SqlRunner.run(sql, values)
+    result = transactions.map { |transaction| Transaction.new(transaction) }
+    return result
+  end
 
   def self.delete_all()
     sql = "DELETE FROM transactions;"
