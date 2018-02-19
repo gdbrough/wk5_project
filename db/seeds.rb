@@ -1,3 +1,4 @@
+require_relative("../models/tags.rb")
 require_relative("../models/users.rb")
 require_relative("../models/merchants.rb")
 require_relative("../models/transactions.rb")
@@ -51,11 +52,25 @@ merchant3.save()
 merchant4.save()
 merchant5.save()
 
+tag1 = Tag.new({
+  "tag_name" => "Groceries"
+})
+tag2 = Tag.new({
+  "tag_name" => "Mortgage"
+})
+tag3 = Tag.new({
+  "tag_name" => "Utilities"
+})
+
+tag1.save()
+tag2.save()
+tag3.save()
+
 transaction1 = Transaction.new({
   "user_id" => user1.id,
   "merchant_id" => merchant1.id,
   "amount" => 27,
-  "tag" => "groceries",
+  "tag_id" => 1,
   "trans_date" => "20180216",
   "recurring_transaction" => false
 })
@@ -63,7 +78,7 @@ transaction2 = Transaction.new({
   "user_id" => user1.id,
   "merchant_id" => merchant2.id,
   "amount" => 42,
-  "tag" => "more groceries",
+  "tag_id" => 1,
   "trans_date" => "20180216",
   "recurring_transaction" => false
 })
@@ -71,7 +86,7 @@ transaction3 = Transaction.new({
   "user_id" => user1.id,
   "merchant_id" => merchant3.id,
   "amount" => 50,
-  "tag" => "power",
+  "tag_id" => 3,
   "trans_date" => "20180216",
   "recurring_transaction" => false
 })
@@ -79,7 +94,7 @@ transaction4 = Transaction.new({
   "user_id" => user1.id,
   "merchant_id" => merchant4.id,
   "amount" => 30,
-  "tag" => "gas",
+  "tag_id" => 3,
   "trans_date" => "20180216",
   "recurring_transaction" => false
 })
@@ -87,7 +102,7 @@ transaction5 = Transaction.new({
   "user_id" => user2.id,
   "merchant_id" => merchant1.id,
   "amount" => 12,
-  "tag" => "groceries",
+  "tag_id" => 1,
   "trans_date" => "20180216",
   "recurring_transaction" => false
 })
@@ -95,7 +110,7 @@ transaction6 = Transaction.new({
   "user_id" => user1.id,
   "merchant_id" => merchant5.id,
   "amount" => 550,
-  "tag" => "mortgage",
+  "tag_id" => 2,
   "trans_date" => "20180216",
   "recurring_transaction" => true
 })

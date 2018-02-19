@@ -3,7 +3,7 @@
 <p>User : <%= @transaction.find_user().display_name() %></p>
 <p>Merchant : <%= @transaction.find_merchant().merchant_name %></p>
 <p>Transaction Amount : <%= @transaction.amount %></p>
-<p>Tag : <%= @transaction.tag %></p>
+<p>Tag : <%= @transaction.find_tag().tag_name %></p>
 <p>Transaction Date : <%= @transaction.trans_date %></p>
 <p>Recurring Transaction :
 <% if @transaction.recurring_transaction == "t" %>

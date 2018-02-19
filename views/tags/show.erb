@@ -1,0 +1,8 @@
+<h2>Show Specific Tag</h2>
+
+<p>Tag : <%= @tag.tag_name %></p>
+<a href="/tags/<%= @tag.id %>/edit">Edit this Tag</a>
+<form method="post" action="/tags/<%= @tag.id %>/delete">
+  <input type="submit" value="Delete tag" />
+</form>
+</br />

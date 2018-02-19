@@ -1,0 +1,17 @@
+<h2>Tags</h2>
+
+<% if Tag.all().count() < 1 %>
+  There current no tags registered to this app.
+  <br/ >
+  Please <a href="/tags/add">add a user</a>.
+<% else %>
+  <h3>Showing <%= Tag.all().count() %> tags</h3>
+  <% @tags.each do |tag| %>
+    <p>
+      Tag Name : <%= tag.tag_name %>
+      <br />
+      <a href="tags/<%= tag.id %>">View this Tag</a>
+    </p>
+  <% end %>
+  Please <a href="/tags/add">Add a New Tag</a>
+<% end %>

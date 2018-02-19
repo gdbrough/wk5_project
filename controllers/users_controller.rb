@@ -37,8 +37,8 @@ end
 
 # delete
 post "/users/:id/delete" do
-  @order = User.new(params)
-  @order.delete()
+  @user = User.new(params)
+  @user.delete()
   redirect "/users"
 end
 

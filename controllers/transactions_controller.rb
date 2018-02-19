@@ -5,6 +5,7 @@ require("pry-byebug")
 require_relative("../models/transactions.rb")
 require_relative("../models/merchants.rb")
 require_relative("../models/users.rb")
+require_relative("../models/tags.rb")
 
 # index
 get "/transactions" do
@@ -31,6 +32,7 @@ get "/transactions/:id/edit" do
   @transaction = Transaction.find(params[:id])
   @merchants = Merchant.all()
   @users = User.all()
+  @tags = Tag.all()
   erb(:"transactions/edit")
 end
 
@@ -53,3 +55,6 @@ get "/transactions/:id" do
   @transaction = Transaction.find(params[:id])
   erb(:"transactions/show")
 end
+
+# binding.pry
+# nil

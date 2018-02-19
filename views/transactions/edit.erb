@@ -22,8 +22,14 @@
 
   <label for="amount">Transaction Amount :</label>
   <input type="number" name="amount" id="amount" value="<%= @transaction.amount %>" />
-  <label for="tag">Tag :</label>
-  <input type="text" name="tag" id="tag" value="<%= @transaction.tag %>" />
+  <label for="tag">Select a Tag :</label>
+  <select name="tag_id" id="tag_id">
+    <% for tag in @tags %>
+      <option value = "<%= tag.id %>" <%= "selected" if tag.id.to_i == @transaction.tag_id.to_i %>>
+        <%=  tag.tag_name %>
+      </option>
+    <% end %>
+  </select>
   <label for="pay_date">Transaction Date :</label>
   <input type="date" name="trans_date" id="trans_date" value="<%= @transaction.trans_date %>" />
   <label for="recurring_transaction">Recurring Transaction :</label>

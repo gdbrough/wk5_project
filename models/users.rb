@@ -23,8 +23,8 @@ class User
     VALUES ($1, $2, $3, $4, $5)
     RETURNING id"
     values = [@first_name, @last_name, @monthly_income, @budget, @pay_date]
-    house_data = SqlRunner.run(sql, values)
-    @id = house_data.first()["id"].to_i
+    user_data = SqlRunner.run(sql, values)
+    @id = user_data.first()["id"].to_i
   end
 
   def update()
