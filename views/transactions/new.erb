@@ -4,7 +4,7 @@
   <label for="user_id">Select a User</label>
   <select name="user_id">
     <% @users.each do | user | %>
-      <option value="<%= user.id %>"><%= user.pretty_name() %></option>
+      <option value="<%= user.id %>"><%= user.display_name() %></option>
     <% end %>
   </select>
   <label for="merchant">Select a Merchant</label>

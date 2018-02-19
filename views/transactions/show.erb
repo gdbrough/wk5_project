@@ -1,6 +1,6 @@
 <h2>Show Specific Transaction</h2>
 
-<p>User : <%= @transaction.find_user().pretty_name() %></p>
+<p>User : <%= @transaction.find_user().display_name() %></p>
 <p>Merchant : <%= @transaction.find_merchant().merchant_name %></p>
 <p>Transaction Amount : <%= @transaction.amount %></p>
 <p>Tag : <%= @transaction.tag %></p>

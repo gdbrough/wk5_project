@@ -6,7 +6,7 @@
   <select name="user_id" id="user_id">
     <% for user in @users %>
       <option value = "<%= user.id %>" <%= "selected" if user.id.to_i == @transaction.user_id.to_i %>>
-        <%=  user.pretty_name %>
+        <%=  user.display_name %>
       </option>
     <% end %>
   </select>

@@ -3,8 +3,8 @@
 Select user:
 <% @users.each do |user| %>
   <p>
-    User Name : <%= user.pretty_name() %>
+    User Name : <%= user.display_name() %>
     <br />
-    <a href="budget/<%= user.id %>">View User' Budget</a>
+    <a href="budget/<%= user.id %>">View User's Budget</a>
   </p>
 <% end %>

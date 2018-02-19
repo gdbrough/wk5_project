@@ -8,7 +8,7 @@
   <h3>Showing <%= Transaction.all().count() %> transactions</h3>
   <% @transactions.each do |transaction| %>
     <p>
-      User : <%= transaction.find_user().pretty_name() %>
+      User : <%= transaction.find_user().display_name() %>
       <br />
       Merchant : <%= transaction.find_merchant().merchant_name %>
       <br />

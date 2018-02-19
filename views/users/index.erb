@@ -8,7 +8,7 @@
   <h3>Showing <%= User.all().count() %> users</h3>
   <% @users.each do |user| %>
     <p>
-      User Name : <%= user.pretty_name() %>
+      User Name : <%= user.display_name() %>
       <br />
       Monthy Income : <%= user.monthly_income %>
       <br />

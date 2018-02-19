@@ -13,7 +13,7 @@ class User
     @pay_date = options["pay_date"]
   end
 
-  def pretty_name()
+  def display_name()
     return "#{@first_name} #{@last_name}"
   end
 

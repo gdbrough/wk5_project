@@ -1,7 +1,22 @@
 <h2>Show Budget for User</h2>
 
-<p>Budget for <%= @users.pretty_name %>.</p>
+<p>Budget for <%= @users.display_name %>.</p>
 <p>Showing <%= @user_transactions.count() %> transactions.</p>
+<p>Budget : <%= @users.budget %></p>
+<p>Total Recurring Transactions : <%= @total_recurring_transactions %></p>
+<p>Today's Date : <%= @current_date %></p>
+<p>Current Date : <%= @current_date[2] %></p>
+<p>Current Month : <%= @current_date[1] %></p>
+<p>Current Year : <%= @current_date[0] %></p>
+<p>test</p>
+<p>User's Pay Date : <%= @users.pay_date %></p>
+
+<p>Next Pay Day : <%= @next_pay_date %></p>
+
+<p>Next Pay Date : <%= @next_pay_date[2] %></p>
+<p>Next Pay Month : <%= @next_pay_date[1] %></p>
+<p>Next Pay Year : <%= @next_pay_date[0] %></p>
+
 <% @user_transactions.each do |transaction| %>
   <p>
     Merchant : <%= transaction.find_merchant().merchant_name %>
