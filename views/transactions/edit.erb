@@ -1,6 +1,6 @@
 <p>Edit Transaction</p>
 
-<form method="post" action="/transactions/<%= @transaction.id %>">
+<form class="edit" method="post" action="/transactions/<%= @transaction.id %>">
 
   <label for="user">Select a User</label>
   <select name="user_id" id="user_id">
@@ -40,6 +40,6 @@
   checked
   <% end %>
   >
-  <input type="submit" value="Edit Transaction" />
+  <input class="button" type="submit" value="Edit Transaction" />
 
 </form>

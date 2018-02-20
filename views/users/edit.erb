@@ -1,18 +1,22 @@
-<p>Edit User</p>
+<h2>Edit User</h2>
 
-<form method="post" action="/users/<%= @user.id %>">
+<form class="edit" method="post" action="/users/<%= @user.id %>">
 
   <label for="first_name">First Name :</label>
   <input type="text" name="first_name" id="first_name" value="<%= @user.first_name %>" />
+  <br />
   <label for="first_name">Last Name :</label>
   <input type="text" name="last_name" id="Last_name" value="<%= @user.last_name %>" />
+  <br />
   <label for="monthly_income">Monthly Income (£):</label>
   <input type="number" name="monthly_income" id="monthly_income" value="<%= @user.monthly_income %>" />
+  <br />
   <label for="budget">Budget (£):</label>
   <input type="number" name="budget" id="budget" value="<%= @user.budget %>" />
+  <br />
   <label for="pay_date">Pay Date :</label>
   <input type="number" name="pay_date" id="pay_date" value="<%= @user.pay_date %>" />
-
-  <input type="submit" value="Edit User" />
+  <br />
+  <input class="button" type="submit" value="Edit User" />
 
 </form>

@@ -1,8 +1,10 @@
 <h2>Budget</h2>
+<p>Select the desired user below to view that individual's budget.</p>
+<p>Integer vitae wisi at scelerisque mollis. Convallis massa curae. Suspendisse sodales nulla. Sed amet nec. Urna turpis praesent sit commodo lacinia leo lacinia blandit amet faucibus ultricies eu lacus vel.</p>
 
 Select user:
 <% @users.each do |user| %>
-  <p>
+  <p class="display">
     User Name : <%= user.display_name() %>
     <br />
     <a href="budget/<%= user.id %>">View User's Budget</a>

@@ -5,18 +5,23 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Froogle</title>
+
+  <link href="https://fonts.googleapis.com/css?family=Noto+Sans" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="/styles/layout.css">
 </head>
 <body>
   <header>
     <h1>Froogle</h1>
   </header>
   <nav>
-    <a href="/">Home</a> |
-    <a href="/users">Users</a> |
-    <a href="/tags">Tags</a> |
-    <a href="/merchants">Merchants</a> |
-    <a href="/transactions">Transactions</a> |
-    <a href="/budget">Budget</a>
+    <ul>
+      <li><a href="/">Home</a></li>
+      <li><a href="/users">Users</a></li>
+      <li><a href="/tags">Tags</a></li>
+      <li><a href="/merchants">Merchants</a></li>
+      <li><a href="/transactions">Transactions</a></li>
+      <li><a href="/budget">Budget</a></li>
+    </ul>
   </nav>
   <main>
     <%= yield %>

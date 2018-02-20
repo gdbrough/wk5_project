@@ -1,17 +1,24 @@
 <h2>Merchants</h2>
+<p>Merchants are used to identify the recipient of a transaction.  Recurring Transactions are used to identify regular transactions (e.g. Direct Debits, etc.).</p>
+<p>Imperdiet ante rutrum ac vehicula nulla imperdiet tincidunt eget lobortis vivamus nulla. Amet euismod est luctus nulla consequat. Magna metus libero. Posuere augue torquent. Interdum pede tempor sit pede aliquet mauris sit malesuada. Neque felis dictum vestibulum faucibus eu. Vitae arcu per repellendus quis egestas. Maecenas vulputate diam. Tellus curabitur sem donec malesuada pede. Et diam sagittis sed id vestibulum.</p>
+<p>Integer vitae wisi at scelerisque mollis. Convallis massa curae. Suspendisse sodales nulla. Sed amet nec. Urna turpis praesent sit commodo lacinia leo lacinia blandit amet faucibus ultricies eu lacus vel.</p>
+<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
 
 <% if Merchant.all().count() < 1 %>
   There current no merchants to be referenced in transactions.
   <br/ >
-  Please <a href="/merchants/add">add a merchant</a>.
+  <a class="button" href="/merchants/add">Add a Merchant</a>
 <% else %>
   <h3>Showing <%= Merchant.all().count() %> merchants</h3>
+  <a class="button" href="/merchants/add">Add a New Merchant</a>
   <% @merchants.each do |merchant| %>
-    <p>
+    <p class="display">
       Merchant Name : <%= merchant.merchant_name %>
       <br />
       <a href="/merchants/<%= merchant.id %>">View Merchant</a>
     </p>
   <% end %>
-  Please <a href="/merchants/add">Add a New Merchant</a>
+  <div class="changes">
+    <a class="button" href="/merchants/add">Add a New Merchant</a>
+  </div>
 <% end %>

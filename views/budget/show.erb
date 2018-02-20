@@ -1,45 +1,57 @@
 <h2>Show Budget for User</h2>
 
-<h3>Budget for <%= @users.display_name %>.</h3>
-<p>Today's Date : <%= Date.new(@current_date[0], @current_date[1], @current_date[2]) %></p>
-<p>Next Pay Date : <%= Date.new(@next_pay_date[0], @next_pay_date[1], @next_pay_date[2]) %></p>
-<p>Monthly Income : £<%= @users.monthly_income %></p>
-<p>Monthly Budget : £<%= @users.budget %></p>
-<p>Total Recurring Transactions : £
-  <% if @total_recurring_transactions == nil %>
-    0
-  <% else %>
-    <%= @total_recurring_transactions %>
-  <% end %>
-</p>
-<p>Total Transactions Since Last Pay Day :  £
-  <% if @total_non_recurring_transactions == nil %>
-    0
-  <% else %>
-    <%= @total_non_recurring_transactions %></p>
-  <% end %>
-<p><% if @remaining_daily_budget[1] < 1 %>
-  WARNING!!!
-  <% end %>
-  Daily Budget for next <%= @remaining_daily_budget[0].to_i %> day(s) : £<%= @remaining_daily_budget[1] %></p>
+<div class="flex-wrapper">
+  <div class="budget_display">
+    <h3>Budget for <%= @users.display_name %>.</h3>
+    <p>Today's Date : <%= Date.new(@current_date[0], @current_date[1], @current_date[2]) %></p>
+    <p>Next Pay Date : <%= Date.new(@next_pay_date[0], @next_pay_date[1], @next_pay_date[2]) %></p>
+    <p>Monthly Income : £ <%= @users.monthly_income %></p>
+    <p>Monthly Budget : £ <%= @users.budget %></p>
+    <% monthly_saving = @users.monthly_income.to_i - @users.budget.to_i %>
+    <p>Monthly Saving : £ <%= monthly_saving %></p>
+    <p>Total Recurring Transactions : £
+      <% if @total_recurring_transactions == nil %>
+        0
+      <% else %>
+        <%= @total_recurring_transactions %>
+      <% end %>
+    </p>
+    <p>Total Transactions Since Last Pay Day :  £
+      <% if @total_non_recurring_transactions == nil %>
+        0
+      <% else %>
+        <%= @total_non_recurring_transactions %></p>
+      <% end %>
+    <p><% if @remaining_daily_budget[1] < 1 %>
+      <div class="flash">WARNING!!!</div>
+      <% end %>
+      Daily Budget for next <%= @remaining_daily_budget[0].to_i %> day(s) : £ <%= @remaining_daily_budget[1] %>
+    </p>
+  </div>
 
-<h3>All Transactions for <%= @users.display_name %></h3>
-<h4>Showing <%= @user_transactions.count() %> transactions.</h4>
-<% @user_transactions.each do |transaction| %>
-  <p>
-    Merchant : <%= transaction.find_merchant().merchant_name %>
-    <br />
-    Transaction Amount : <%= transaction.amount %>
-    <br />
-    Tag : <%= transaction.find_tag().tag_name %>
-    <br />
-    Transaction Date : <%= transaction.trans_date %>
-    <br />
-    Recurring Transaction :
-    <% if transaction.recurring_transaction == "t" %>
-      Yes
-    <% else %>
-      No
+  <div class="transaction_display">
+
+
+    <h3>All Transactions for <%= @users.display_name %></h3>
+    <h4>Showing <%= @user_transactions.count() %> transactions.</h4>
+    <% @user_transactions.each do |transaction| %>
+      <p>
+        Merchant : <%= transaction.find_merchant().merchant_name %>
+        <br />
+        Transaction Amount : <%= transaction.amount %>
+        <br />
+        Tag : <%= transaction.find_tag().tag_name %>
+        <br />
+        Transaction Date : <%= transaction.trans_date %>
+        <br />
+        Recurring Transaction :
+        <% if transaction.recurring_transaction == "t" %>
+          Yes
+        <% else %>
+          No
+        <% end %>
+      </p>
     <% end %>
-  </p>
-<% end %>
+
+  </div>
+</div>

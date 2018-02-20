@@ -1,0 +1,187 @@
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Noto Sans', sans-serif;
+}
+
+h1 {
+  font-size: 72px;
+  background-color: #006BA9;
+  margin-top: 20px;
+  margin-bottom: 0px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+header {
+  background-color: #006BA9;
+  text-align: center;
+  margin: 0px;
+  color: #E7D8C9;
+}
+
+footer {
+  background-color: #006BA9;
+  text-align: center;
+  margin: 0px;
+  color: #E7D8C9;
+  font-family: 'Noto Sans', sans-serif;
+  font-size: 14px;
+}
+
+h2 {
+  color: #A18579;
+  font-size: 28px;
+  text-decoration: underline;
+  text-align: left;
+}
+
+h3 {
+  color: #A18579;
+  font-size: 20px;
+}
+
+nav {
+  padding: 10px;
+  margin: 0px;
+  background-color: #E7D8C9;
+}
+
+nav ul {
+display: flex;
+flex-wrap: wrap;
+justify-content: space-around;
+width: 600px;
+margin: 0 auto;
+}
+
+nav ul li {
+  text-transform: uppercase;
+  display: inline;
+  text-align: center;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+ul {
+  padding: 0px;
+  margin: 0px;
+  list-style-type: none;
+}
+
+@media all and (max-width: 650px) {
+  nav ul {
+     width: auto;
+   }
+  nav ul li {
+    margin: 5px;
+  }
+  h2 {text-align: center;}
+}
+
+main {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 14px;
+}
+
+.flash {
+  display: inline;
+  animation-name: flash;
+    animation-duration: 0.3s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    animation-play-state: running;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+@keyframes flash {
+    from {color: red;}
+    to {color: white; background-color: red;}
+}
+
+.changes {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.button {
+   background: #999999;
+   padding: 5px;
+   border-radius: 5px;
+   color: white;
+   font-size: 14px;
+   font-family: Helvetica, Arial, Sans-Serif;
+   text-decoration: none;
+   vertical-align: middle;
+   display: inline;
+   margin-top: 5px;
+   margin-bottom: 10px;
+   margin-left: 5px;
+   margin-right: 5px;
+   cursor: pointer;
+}
+
+.button:hover {
+   border-top-color: #666666;
+   background: #666666;
+   color: #CCCCCC;
+}
+
+.button:active {
+   border-top-color: #333333;
+   background: #333333;
+}
+
+.display {
+  display: block;
+
+  background-color: #EEE4E1;
+  padding: 10px;
+  border: 10px;
+  border-radius: 10px;
+  width: 250px;
+}
+
+.flex-wrapper {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 40px;
+}
+
+.budget_display {
+  background-color: #EEE4E1;
+  padding: 10px;
+  border: 10px;
+  border-radius: 10px;
+  width: 350px;
+}
+
+.transaction_display {
+  background-color: #EEE4E1;
+  padding: 10px;
+  border: 10px;
+  border-radius: 10px;
+  width: 350px;
+}
+
+.edit {
+  display: flex;
+  flex-direction: column;
+  background-color: #EEE4E1;
+  justify-content: space-around;
+  width: 500px;
+}
+
+@media all and (max-width: 800px) {
+  .flex-wrapper {
+     flex-direction: column;
+     align-items: center;
+   }
+  .budget_display {margin-bottom: 20px; width: 75%}
+  .transaction_display {width: 75%;}
+}
+
+@media all and (max-width: 500px) {
+  .budget_display {width: 90%}
+  .transaction_display {width: 90%;}
+}

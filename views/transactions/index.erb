@@ -1,18 +1,22 @@
 <h2>Transactions</h2>
+<p>Add all your transactions here.  Recurring and non-recurring tranasactions can be identified by simply selecting the checkbox where appropriate.</p>
+<p>Imperdiet ante rutrum ac vehicula nulla imperdiet tincidunt eget lobortis vivamus nulla. Amet euismod est luctus nulla consequat. Magna metus libero. Posuere augue torquent. Interdum pede tempor sit pede aliquet mauris sit malesuada. Neque felis dictum vestibulum faucibus eu. Vitae arcu per repellendus quis egestas. Maecenas vulputate diam. Tellus curabitur sem donec malesuada pede. Et diam sagittis sed id vestibulum.</p>
+<p>Integer vitae wisi at scelerisque mollis. Convallis massa curae. Suspendisse sodales nulla. Sed amet nec. Urna turpis praesent sit commodo lacinia leo lacinia blandit amet faucibus ultricies eu lacus vel.</p>
 
 <% if Transaction.all().count() < 1 %>
   There current no transactions added to this app.
   <br/ >
-  Please <a href="/transactions/add">add a transaction</a>.
+  <a class="button" href="/transactions/add">Add a Transaction</a>.
 <% else %>
   <h3>Showing <%= Transaction.all().count() %> transactions</h3>
+  <a class="button" href="/transactions/add">Add a New Transaction</a>
   <% @transactions.each do |transaction| %>
-    <p>
+    <p class="display">
       User : <%= transaction.find_user().display_name() %>
       <br />
       Merchant : <%= transaction.find_merchant().merchant_name %>
       <br />
-      Amount : £<%= transaction.amount %>
+      Amount : £ <%= transaction.amount %>
       <br />
       Tag : <%= transaction.find_tag().tag_name %>
       <br />
@@ -25,9 +29,11 @@
         No
       <% end %>
       <br />
-      <a href="transactions/<%= transaction.id%>">View Transaction</a>
+        <a href="transactions/<%= transaction.id%>">View Transaction</a>
       <br />
     </p>
   <% end %>
-  Please <a href="/transactions/add">Add a New Transaction</a>
+  <div class="changes">
+    <a class="button" href="/transactions/add">Add a New Transaction</a>
+  </div>
 <% end %>

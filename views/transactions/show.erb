@@ -2,7 +2,7 @@
 
 <p>User : <%= @transaction.find_user().display_name() %></p>
 <p>Merchant : <%= @transaction.find_merchant().merchant_name %></p>
-<p>Transaction Amount : <%= @transaction.amount %></p>
+<p>Transaction Amount (£): <%= @transaction.amount %></p>
 <p>Tag : <%= @transaction.find_tag().tag_name %></p>
 <p>Transaction Date : <%= @transaction.trans_date %></p>
 <p>Recurring Transaction :
@@ -12,8 +12,10 @@
   No
 <% end %>
 </p>
-<a href="/transactions/<%= @transaction.id %>/edit">Edit this Transaction</a>
+<div class="changes">
+<a class="button" href="/transactions/<%= @transaction.id %>/edit">Edit this Transaction</a>
 <form method="post" action="/transactions/<%= @transaction.id %>/delete">
-  <input type="submit" value="Delete Transaction" />
+  <input class="button" type="submit" value="Delete Transaction" />
 </form>
+</div>
 </br />

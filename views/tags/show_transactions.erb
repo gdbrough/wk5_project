@@ -13,6 +13,8 @@
       No
     <% end %>
   </p>
-  <a href="/tags/<%= transaction.find_tag().id %>/edit">Edit this Tag</a>
+  <div class="changes">
+    <a class="button" href="/tags/<%= transaction.find_tag().id %>/edit">Edit this Tag</a>
+  </div>
   <br /><br />
 <% end %>

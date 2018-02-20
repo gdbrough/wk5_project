@@ -1,29 +1,34 @@
 <h2>Add New Transaction</h2>
 
-<form action="/transactions" method="post">
+<form class="edit" action="/transactions" method="post">
   <label for="user_id">Select a User</label>
   <select name="user_id">
     <% @users.each do | user | %>
       <option value="<%= user.id %>"><%= user.display_name() %></option>
     <% end %>
   </select>
+  <br />
   <label for="merchant">Select a Merchant</label>
   <select name="merchant_id">
     <% @merchants.each do | merchant | %>
       <option value="<%= merchant.id %>"><%= merchant.merchant_name %></option>
     <% end %>
   </select>
-  <label for="amount">Amount : £</label>
+  <br />
+  <label for="amount">Amount : £ </label>
   <input type="number" name="amount" id="amount" />
+  <br />
   <label for="tag_id">Tag :</label>
   <select name="tag_id">
     <% @tags.each do | tag | %>
       <option value="<%= tag.id %>"><%= tag.tag_name %></option>
     <% end %>
   </select>
+  <br />
   <label for="trans_date">Date :</label>
   <input type="date" name="trans_date" id="trans_date" />
+  <br />
   <label for="recurring_transaction">Recurring Transaction :</label>
   <input type="checkbox" name="recurring_transaction" id="recurring_transaction" value="t" />
-  <input type="submit" value="Add Transaction">
+  <input class="button" type="submit" value="Add Transaction">
 </form>

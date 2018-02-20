@@ -1,9 +1,11 @@
 <h2>Show Specific Tag</h2>
 
 <p>Tag : <%= @tag.tag_name %></p>
-<a href="/tags/<%= @tag.id %>/edit">Edit this Tag</a>
-<form method="post" action="/tags/<%= @tag.id %>/delete">
-  <input type="submit" value="Delete tag" />
-</form>
-<a href="/tags/<%= @tag.id %>/transactions">Show all Transactions for this Tag</a>
+<div class="changes">
+  <a class="button" href="/tags/<%= @tag.id %>/edit">Edit this Tag</a>
+  <form method="post" action="/tags/<%= @tag.id %>/delete">
+    <input class="button" type="submit" value="Delete tag" />
+  </form>
+  <a class="button" href="/tags/<%= @tag.id %>/transactions">Show all Transactions for this Tag</a>
+</div>
 </br />

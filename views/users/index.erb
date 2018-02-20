@@ -1,23 +1,30 @@
 <h2>Users</h2>
 
+<p>Create one or many users.  Each user will have their own bugdet, but bear in mind that, as there are no passwords or privacy settings in Froogle, all users' details will be visible to all other users.</p>
+<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+<p>Tempus sed tincidunt accumsan magna orci. Amet euismod aut accumsan a quis. A adipiscing auctor. A posuere nostra. Consequat est tortor feugiat a pharetra blandit turpis mauris a nec ut.</p>
+
 <% if User.all().count() < 1 %>
   There current no users registered to use this app.
   <br/ >
-  Please <a href="/users/add">add a user</a>.
+  <a class="button" href="/users/add">Add a User</a>
 <% else %>
   <h3>Showing <%= User.all().count() %> users</h3>
+  <a class="button" href="/users/add">Add a New User</a>
   <% @users.each do |user| %>
-    <p>
+    <p class="display">
       User Name : <%= user.display_name() %>
       <br />
-      Monthy Income : £<%= user.monthly_income %>
+      Monthy Income : £ <%= user.monthly_income %>
       <br />
-      Budget : £<%= user.budget %>
+      Budget : £ <%= user.budget %>
       <br />
       Pay Date : <%= user.pay_date %>
       <br />
       <a href="users/<%= user.id %>">View User</a>
     </p>
   <% end %>
-  Please <a href="/users/add">Add a New User</a>
+  <div class="changes">
+    <a class="button" href="/users/add">Add a New User</a>
+  </div>
 <% end %>
