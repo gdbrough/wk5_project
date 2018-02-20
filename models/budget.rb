@@ -2,12 +2,6 @@ require_relative("../db/sql_runner")
 
 class Budget
 
-  attr_reader :user_id
-
-  def initialize(options)
-    @user_id = options("user_id")
-  end
-
   def self.find_all_transactions_for_user(user_id)
     sql = "SELECT * FROM transactions WHERE user_id = $1 order by trans_date desc"
     values = [user_id]
@@ -84,21 +78,5 @@ class Budget
     end
     return next_pay_year, next_pay_month, next_pay_date
   end
-
-  # def self.find_all_non_recurring_transactions_since(id, p_date)
-  #   last_pay_date = Date.new(p_date[0],p_date[1],p_date[2])
-  #   sql = "SELECT * FROM transactions WHERE user_id = $1 and trans_date > $2"
-  #   values = [id, last_pay_date.to_s]
-  #   non_recurring_transactions = SqlRunner.run(sql, values)
-  #   result = non_recurring_transactions.map { |transaction| Transaction.new(transaction) }
-  #   return result
-  # end
-
-
-  # def date_stuff
-  #   date_sent = Date.parse('2007-01-01')
-  #   date_now = Date.today
-  #   how_many_days_have_passed = (date_now - date_sent).to_i
-  # end
 
 end

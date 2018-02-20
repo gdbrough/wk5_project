@@ -1,6 +1,6 @@
 <h2>Show Specific Tag</h2>
 
-<p>Tag : <%= @tag.tag_name %></p>
+<p class="display">Tag : <%= @tag.tag_name %></p>
 <div class="changes">
   <a class="button" href="/tags/<%= @tag.id %>/edit">Edit this Tag</a>
   <form method="post" action="/tags/<%= @tag.id %>/delete">

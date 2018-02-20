@@ -1,10 +1,16 @@
 <h2>Show Specific User</h2>
 
-<p>First Name : <%= @user.first_name %></p>
-<p>Last Name : <%= @user.last_name %></p>
-<p>Monthly Income : £ <%= @user.monthly_income %></p>
-<p>Budget : £ <%= @user.budget %></p>
-<p>Pay Date : <%= @user.pay_date %></p>
+<p class="display">
+  First Name : <%= @user.first_name %>
+  <br />
+  Last Name : <%= @user.last_name %>
+  <br />
+  Monthly Income : £ <%= @user.monthly_income %>
+  <br />
+  Budget : £ <%= @user.budget %>
+  <br />
+  Pay Date : <%= @user.pay_date %>
+</p>
 <div class="changes">
   <a class="button" href="/users/<%= @user.id %>/edit">Edit this User</a>
   <form method="post" action="/users/<%= @user.id %>/delete">

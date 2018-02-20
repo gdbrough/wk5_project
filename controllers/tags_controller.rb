@@ -2,10 +2,7 @@ require("sinatra")
 require("sinatra/contrib/all")
 require("pry-byebug")
 
-require_relative("../models/budget.rb")
 require_relative("../models/transactions.rb")
-require_relative("../models/merchants.rb")
-require_relative("../models/users.rb")
 require_relative("../models/tags.rb")
 
 # index

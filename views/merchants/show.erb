@@ -1,6 +1,6 @@
 <h2>Show Specific Merchant</h2>
 
-<p>Merchant : <%= @merchant.merchant_name %></p>
+<p class="display">Merchant : <%= @merchant.merchant_name %></p>
 <div class="changes">
   <a class="button" href="/merchants/<%= @merchant.id %>/edit">Edit this Merchant</a>
   <form method="post" action="/merchants/<%= @merchant.id %>/delete">

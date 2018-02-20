@@ -39,6 +39,10 @@ h3 {
   font-size: 20px;
 }
 
+body {
+  background-image: url('/images/financial-background.png');
+}
+
 nav {
   padding: 10px;
   margin: 0px;
@@ -55,6 +59,8 @@ margin: 0 auto;
 
 nav ul li {
   text-transform: uppercase;
+  color: #006BA9
+  font-size: 16px;
   display: inline;
   text-align: center;
   padding-left: 10px;

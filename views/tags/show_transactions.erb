@@ -1,12 +1,13 @@
 <h2>Show Transactions by Tag</h2>
 
 <% @transactions.each do |transaction| %>
-  <p>User : <%= transaction.find_user().display_name() %></p>
-  <p>Merchant : <%= transaction.find_merchant().merchant_name %></p>
-  <p>Transaction Amount : <%= transaction.amount %></p>
-  <p>Tag : <%= transaction.find_tag().tag_name %></p>
-  <p>Transaction Date : <%= transaction.trans_date %></p>
-  <p>Recurring Transaction :
+  <p class="display">
+    User : <%= transaction.find_user().display_name() %>
+    Merchant : <%= transaction.find_merchant().merchant_name %>
+    Transaction Amount : <%= transaction.amount %>
+    Tag : <%= transaction.find_tag().tag_name %>
+    Transaction Date : <%= transaction.trans_date %>
+    Recurring Transaction :
     <% if transaction.recurring_transaction == "t" %>
       Yes
     <% else %>
