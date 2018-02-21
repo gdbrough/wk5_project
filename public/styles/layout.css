@@ -69,6 +69,19 @@ nav ul li {
   padding-right: 10px;
 }
 
+/* nav ul li:hover {
+  background-color: #EEE4E1;
+} */
+
+nav ul li a {
+  text-decoration: none;
+}
+
+nav ul li a:hover {
+  text-decoration: underline overline;
+    background-color: #CFC2B4;
+}
+
 ul {
   padding: 0px;
   margin: 0px;
