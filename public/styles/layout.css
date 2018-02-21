@@ -52,11 +52,11 @@ nav {
 }
 
 nav ul {
-display: flex;
-flex-wrap: wrap;
-justify-content: space-around;
-width: 600px;
-margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  width: 600px;
+  margin: 0 auto;
 }
 
 nav ul li {
@@ -69,17 +69,13 @@ nav ul li {
   padding-right: 10px;
 }
 
-/* nav ul li:hover {
-  background-color: #EEE4E1;
-} */
-
 nav ul li a {
   text-decoration: none;
 }
 
 nav ul li a:hover {
   text-decoration: underline overline;
-    background-color: #CFC2B4;
+  background-color: #CFC2B4;
 }
 
 ul {
@@ -90,7 +86,7 @@ ul {
 
 @media all and (max-width: 650px) {
   nav ul {
-     width: auto;
+    width: auto;
    }
   nav ul li {
     margin: 5px;
@@ -106,18 +102,18 @@ main {
 .flash {
   display: inline;
   animation-name: flash;
-    animation-duration: 0.3s;
-    animation-timing-function: linear;
-    animation-iteration-count: infinite;
-    animation-direction: alternate;
-    animation-play-state: running;
-    padding-left: 5px;
-    padding-right: 5px;
+  animation-duration: 0.3s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+  animation-play-state: running;
+  padding-left: 5px;
+  padding-right: 5px;
 }
 
 @keyframes flash {
-    from {color: red;}
-    to {color: white; background-color: red;}
+  from {color: red;}
+  to {color: white; background-color: red;}
 }
 
 .changes {
@@ -126,36 +122,35 @@ main {
 }
 
 .button {
-   background: #999999;
-   padding: 5px;
-   border-radius: 5px;
-   color: white;
-   font-size: 14px;
-   font-family: Helvetica, Arial, Sans-Serif;
-   text-decoration: none;
-   vertical-align: middle;
-   display: inline;
-   margin-top: 5px;
-   margin-bottom: 10px;
-   margin-left: 5px;
-   margin-right: 5px;
-   cursor: pointer;
+  background: #999999;
+  padding: 5px;
+  border-radius: 5px;
+  color: white;
+  font-size: 14px;
+  font-family: Helvetica, Arial, Sans-Serif;
+  text-decoration: none;
+  vertical-align: middle;
+  display: inline;
+  margin-top: 5px;
+  margin-bottom: 10px;
+  margin-left: 5px;
+  margin-right: 5px;
+  cursor: pointer;
 }
 
 .button:hover {
-   border-top-color: #666666;
-   background: #666666;
-   color: #CCCCCC;
+  border-top-color: #666666;
+  background: #666666;
+  color: #CCCCCC;
 }
 
 .button:active {
-   border-top-color: #333333;
-   background: #333333;
+  border-top-color: #333333;
+  background: #333333;
 }
 
 .display {
   display: block;
-
   background-color: #EEE4E1;
   padding: 10px;
   border: 10px;
