@@ -114,7 +114,7 @@ transaction6 = Transaction.new({
   "merchant_id" => merchant5.id,
   "amount" => 550,
   "tag_id" => 2,
-  "trans_date" => "20180216",
+  "trans_date" => "20171002",
   "recurring_transaction" => true
 })
 
