@@ -9,7 +9,8 @@ CREATE TABLE users (
   last_name VARCHAR(255),
   monthly_income INT,
   budget INT,
-  pay_date INT
+  pay_date INT,
+  min_daily_spend INT
 );
 
 CREATE TABLE merchants (

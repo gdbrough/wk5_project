@@ -2,7 +2,7 @@ require_relative("../db/sql_runner")
 
 class User
 
-  attr_reader :id, :first_name, :last_name, :monthly_income, :budget, :pay_date
+  attr_reader :id, :first_name, :last_name, :monthly_income, :budget, :pay_date, :min_daily_spend
 
   def initialize(options)
     @id = options["id"].to_i
@@ -11,6 +11,7 @@ class User
     @monthly_income = options["monthly_income"]
     @budget = options["budget"]
     @pay_date = options["pay_date"]
+    @min_daily_spend = options["min_daily_spend"]
   end
 
   def display_name()
@@ -19,19 +20,19 @@ class User
 
   def save()
     sql = "INSERT INTO users
-    (first_name, last_name, monthly_income, budget, pay_date)
-    VALUES ($1, $2, $3, $4, $5)
+    (first_name, last_name, monthly_income, budget, pay_date, min_daily_spend)
+    VALUES ($1, $2, $3, $4, $5, $6)
     RETURNING id"
-    values = [@first_name, @last_name, @monthly_income, @budget, @pay_date]
+    values = [@first_name, @last_name, @monthly_income, @budget, @pay_date, @min_daily_spend]
     user_data = SqlRunner.run(sql, values)
     @id = user_data.first()["id"].to_i
   end
 
   def update()
     sql = "UPDATE users SET first_name = $1, last_name = $2,
-    monthly_income = $3, budget = $4, pay_date = $5
-    where id = $6"
-    values = [@first_name, @last_name, @monthly_income, @budget, @pay_date, @id]
+    monthly_income = $3, budget = $4, pay_date = $5, min_daily_spend = $6
+    where id = $7"
+    values = [@first_name, @last_name, @monthly_income, @budget, @pay_date, @min_daily_spend, @id]
     user = SqlRunner.run(sql, values)
   end
 

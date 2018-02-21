@@ -9,6 +9,7 @@
     <p>Monthly Budget : £ <%= @users.budget %></p>
     <% monthly_saving = @users.monthly_income.to_i - @users.budget.to_i %>
     <p>Monthly Saving : £ <%= monthly_saving %></p>
+    <p>Prefered Minimum Daily Spend : £ <%= @users.min_daily_spend.to_i %></p>
     <p>Total Recurring Transactions : £
       <% if @total_recurring_transactions == nil %>
         0
@@ -16,13 +17,13 @@
         <%= @total_recurring_transactions %>
       <% end %>
     </p>
-    <p>Total Transactions Since Last Pay Day :  £
+    <p>Total Ad-hoc Transactions Since Last Pay Day :  £
       <% if @total_non_recurring_transactions == nil %>
         0
       <% else %>
         <%= @total_non_recurring_transactions %></p>
       <% end %>
-    <p><% if @remaining_daily_budget[1] < 1 %>
+    <p><% if @remaining_daily_budget[1] < @users.min_daily_spend.to_i %>
       <div class="flash">WARNING!!!</div>
       <% end %>
       Daily Budget for next <%= @remaining_daily_budget[0].to_i %> day(s) : £ <%= @remaining_daily_budget[1] %>

@@ -8,22 +8,25 @@ user1 = User.new({
   "first_name" => "1st",
   "last_name" => "User",
   "monthly_income" => 2000,
-  "budget" => 500,
-  "pay_date" => 1
+  "budget" => 750,
+  "pay_date" => 1,
+  "min_daily_spend" => 10
 })
 user2 = User.new({
   "first_name" => "2nd",
   "last_name" => "User",
   "monthly_income" => 2500,
   "budget" => 2000,
-  "pay_date" => 15
+  "pay_date" => 15,
+  "min_daily_spend" => 60
 })
 user3 = User.new({
   "first_name" => "3rd",
   "last_name" => "User",
   "monthly_income" => 2000,
   "budget" => 1000,
-  "pay_date" => 28
+  "pay_date" => 28,
+  "min_daily_spend" => 30
 })
 
 user1.save()
