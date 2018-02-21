@@ -37,7 +37,7 @@ class Transaction
   end
 
   def find_user()
-    sql = "SELECT * FROM users WHERE id = $1"
+    sql = "SELECT * FROM users WHERE id = $1 ORDER BY id"
     values = [@user_id]
     user = SqlRunner.run(sql, values)
     result = User.new(user.first)
@@ -45,7 +45,7 @@ class Transaction
   end
 
   def find_merchant()
-    sql = "SELECT * FROM merchants WHERE id = $1"
+    sql = "SELECT * FROM merchants WHERE id = $1 ORDER BY id"
     values = [@merchant_id]
     merchant = SqlRunner.run(sql, values)
     result = Merchant.new(merchant.first)
@@ -53,7 +53,7 @@ class Transaction
   end
 
   def find_tag()
-    sql = "SELECT * FROM tags WHERE id = $1"
+    sql = "SELECT * FROM tags WHERE id = $1 ORDER BY id"
     values = [@tag_id]
     tag = SqlRunner.run(sql, values)
     result = Tag.new(tag.first)
@@ -68,14 +68,14 @@ class Transaction
   end
 
   def self.all()
-    sql = "SELECT * FROM transactions"
+    sql = "SELECT * FROM transactions ORDER BY id"
     transactions = SqlRunner.run(sql)
     result = transactions.map { |transaction| Transaction.new(transaction) }
     return result
   end
 
   def self.find(id)
-    sql = "SELECT * FROM transactions WHERE id = $1"
+    sql = "SELECT * FROM transactions WHERE id = $1 ORDER BY id"
     values = [id]
     transaction = SqlRunner.run(sql, values)
     result = Transaction.new(transaction.first)
@@ -83,7 +83,7 @@ class Transaction
   end
 
   def self.find_by_tag(id)
-    sql = "SELECT * FROM transactions WHERE tag_id = $1"
+    sql = "SELECT * FROM transactions WHERE tag_id = $1 ORDER BY id"
     values = [id]
     transactions = SqlRunner.run(sql, values)
     result = transactions.map { |transaction| Transaction.new(transaction) }

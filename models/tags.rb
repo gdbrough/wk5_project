@@ -41,7 +41,7 @@ class Tag
   end
 
   def self.find(id)
-    sql = "SELECT * FROM tags WHERE id = $1"
+    sql = "SELECT * FROM tags WHERE id = $1 ORDER BY id"
     values = [id]
     tag = SqlRunner.run(sql, values)
     result = Tag.new(tag.first)

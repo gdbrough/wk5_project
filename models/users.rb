@@ -44,14 +44,14 @@ class User
   end
 
   def self.all()
-    sql = "SELECT * FROM users"
+    sql = "SELECT * FROM users ORDER BY id"
     users = SqlRunner.run(sql)
     result = users.map { |user| User.new(user) }
     return result
   end
 
   def self.find(id)
-    sql = "SELECT * FROM users WHERE id = $1"
+    sql = "SELECT * FROM users WHERE id = $1 ORDER BY id"
     values = [id]
     user = SqlRunner.run(sql, values)
     result = User.new(user.first)
