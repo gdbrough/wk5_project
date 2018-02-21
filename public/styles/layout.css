@@ -1,5 +1,5 @@
 h1, h2, h3, h4, h5, h6 {
-  font-family: 'Noto Sans', sans-serif;
+  font-family: "Noto Sans", sans-serif;
 }
 
 h1 {
@@ -23,7 +23,7 @@ footer {
   text-align: center;
   margin: 0px;
   color: #E7D8C9;
-  font-family: 'Noto Sans', sans-serif;
+  font-family: "Noto Sans", sans-serif;
   font-size: 14px;
 }
 
@@ -40,7 +40,9 @@ h3 {
 }
 
 body {
-  background-image: url('/images/financial-background.png');
+  background-image: url("/images/financial-background.png");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
 }
 
 nav {
